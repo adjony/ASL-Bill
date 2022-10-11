@@ -38,3 +38,5 @@ Type: `pyinstaller -F main.py`
 Executable will be placed in "dist" folder ["main"]
 Run the new executable (in future, VBA will run this directly)
 
+## Backup to GIT
+
