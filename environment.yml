@@ -1,0 +1,45 @@
+name: asl
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - altgraph
+  - appscript
+  - ca-certificates
+  - certifi
+  - libblas
+  - libcblas
+  - libcx
+  - libffi
+  - libgfortran
+  - libgfortran5
+  - liblapack
+  - libopenblas
+  - libsqlite
+  - libzlib
+  - llvm-openmp
+  - macholib
+  - modulegraph
+  - ncurses
+  - numpy
+  - openssl
+  - pandas
+  - pip
+  - psutil
+  - py2app
+  - python
+  - python-dateutil
+  - python_abi
+  - pytz
+  - readline
+  - setuptools
+  - six
+  - sqlite
+  - tk
+  - wheel
+  - xlrd
+  - xlsxwrite
+  - xlwings
+  - xz
+  - zlib
+prefix: /Users/johnsaunders/opt/anaconda3/envs/asl
