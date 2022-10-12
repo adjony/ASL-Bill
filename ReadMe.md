@@ -1,4 +1,4 @@
-# ASL Billing
+# ASL Payroll
 
 The purpose of this script is to format payroll information for the ASL brand in a particular way.
 
