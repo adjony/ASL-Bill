@@ -1,12 +1,12 @@
 # ASL Billing
 
-The purpose of this script is to format billing information for the ASL brand in a particular way.
+The purpose of this script is to format payroll information for the ASL brand in a particular way.
 
-TODO: describe the way in which this billing information is accepted and subsequently formatted.
+TODO: describe the way in which this payroll information is accepted and subsequently formatted.
 
 ## Folder Setup
 
-Looks for a file called `~/Documents/asl-billing/EiD_SageImport_Template.xlsm` and modifies it
+Looks for a file called `~/Documents/asl-payroll/EiD_SageImport_Template.xlsm` and modifies it
 
 ## Python Env Setup
 - Export conda packages to environment
@@ -36,7 +36,10 @@ From cmd prompt:
 cd [map to vb folder on desktop] NOTE: Don't map to document folder because doesn't recognize OneDrive
 Type: `pyinstaller -F main.py`
 Executable will be placed in "dist" folder ["main"]
-Run the new executable (in future, VBA will run this directly)
+Run the new executable (in future, VBA will run this directly from within Excel*)
+*POSSIBLE ERROR: In prior testing, running the .exe caused an error
+*Since Excel is already open when running the VBA script, Excel says: "cannot open file with same filename as open file"
+*Needs more testing on Windows machine
 
 ## Backup to GIT
 
