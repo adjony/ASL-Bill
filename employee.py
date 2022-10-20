@@ -1,7 +1,6 @@
 import week
 import datetime
 import constants as c
-import enums as e
 import block
 
 
@@ -13,6 +12,7 @@ class Employee:
         self.category = row[c.EE_CATEGORY]
         self.payRate = row[c.EE_PAY]
         self.employee = row
+        
 
 
         # if employeeNumber is not 4 digits, dfEmployeeTimesheet is invalid

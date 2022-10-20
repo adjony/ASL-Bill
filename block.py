@@ -2,7 +2,6 @@ from cmath import nan
 from numpy import NaN
 import constants as c
 import json
-import enums as e
 import datetime
 
 
@@ -36,7 +35,7 @@ class Block:
 
         self.category = self.day.week.employee.category
 
-        if (not self.category == e.Category.Salary and not self.day.lunchTaken and self.hours < 0):
+        if (not self.category == c.CATEGORY_SALARY and not self.day.lunchTaken and self.hours < 0):
             self.color = '#efbbb9'
 
 
@@ -62,26 +61,31 @@ class Block:
                 premiumRate = 0
 
         
+      
         # assumes salary extra pay never occurs in winter
-        if (self.category == e.Category.Salary and self.extraPay): 
+        if (self.category == c.CATEGORY_SALARY and self.extraPay): 
             self.payRate = self.day.week.employee.payRate
-        elif (self.category == e.Category.Salary):
+        elif (self.category == c.CATEGORY_SALARY):
             if (premiumRate != None):
                 self.payRate = premiumRate
             else:
                 self.payRate = 0
-        elif (self.category == e.Category.S_Hourly):
+        elif (self.category == c.CATEGORY_S_HOURLY):
+            
             if (self.overtime):
+        
                 if (premiumRate != None):
                     self.payRate = self.day.week.getOvertimeRate(premiumRate)
+               
                 else:
                     self.payRate = self.day.week.getOvertimeRate(self.day.week.employee.payRate)
             else:
+                
                 if (premiumRate != None):
                     self.payRate = premiumRate
                 else:
                     self.payRate = self.day.week.employee.payRate
-        elif (self.category == e.Category.R_Hourly):
+        elif (self.category == c.CATEGORY_R_HOURLY):
             if (self.overtime):
                 if (premiumRate != None):
                     self.payRate = premiumRate * 1.5
@@ -123,7 +127,7 @@ class Block:
     def __setPayType(self, isPremium):
         if isPremium:
             self.payType = 3
-        elif (self.overtime and (self.category == e.Category.S_Hourly or self.category == e.Category.R_Hourly)):
+        elif (self.overtime and (self.category == c.CATEGORY_S_HOURLY or self.category == c.CATEGORY_R_HOURLY)):
             self.payType = 2
         else:
             self.payType = 1

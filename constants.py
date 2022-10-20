@@ -60,3 +60,10 @@ O_NTETXT = 'ntetxt'
 
 
 DEFAULT_COSTCODE = 10
+
+
+
+
+CATEGORY_SALARY = "Field - Salary"
+CATEGORY_S_HOURLY = "Field - Hourly (SOT)"
+CATEGORY_R_HOURLY = "Field - Hourly (ROT)"

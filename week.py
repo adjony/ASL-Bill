@@ -1,7 +1,6 @@
 import day 
 import constants as c
 import datetime
-import enums as e
 
 class Week:
 
@@ -75,7 +74,7 @@ class Week:
 
             # check to see if they took a lunch that on this date
             hoursWorked = dayDf[~dayDf[c.TS_ACTIVITY].str.contains(c.ACTIVITY_CODE_LUNCH)][c.TS_PAYROLL_HOURS].sum()
-            if (hoursWorked > 5 and self.employee.category != e.Category.Salary):
+            if (hoursWorked > 5 and self.employee.category != c.CATEGORY_SALARY):
                
                 lunchRow = dayDf[dayDf[c.TS_ACTIVITY].str.contains(c.ACTIVITY_CODE_LUNCH)]
                 if not lunchRow.empty:
@@ -112,7 +111,8 @@ class Week:
 
             # check to see if they took a lunch that on this date
             hoursWorked = dayDf[~dayDf[c.TS_ACTIVITY].str.contains(c.ACTIVITY_CODE_LUNCH)][c.TS_PAYROLL_HOURS].sum()
-            if (hoursWorked > 5 and self.employee.category != e.Category.Salary):
+            if (hoursWorked > 5 and self.employee.category != c.CATEGORY_SALARY):
+            
                 lunchRow = dayDf[dayDf[c.TS_ACTIVITY].str.contains(c.ACTIVITY_CODE_LUNCH)]
                 if not lunchRow.empty:
                     lunchRow = lunchRow.iloc[0]
