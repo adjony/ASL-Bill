@@ -63,7 +63,7 @@ DEFAULT_COSTCODE = 10
 
 
 
-
+# Removed all the enums, replaced w/ constants
 CATEGORY_SALARY = "Field - Salary"
 CATEGORY_S_HOURLY = "Field - Hourly (SOT)"
 CATEGORY_R_HOURLY = "Field - Hourly (ROT)"
