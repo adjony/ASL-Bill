@@ -48,7 +48,6 @@ class Block:
         else:
             self.activity = row[c.TS_ACTIVITY]
         if '-' in self.activity:
-            # set cost code to decimal with 3 decimal places, three trailing zeros
             self.costCode = float(self.activity.split('-')[0].strip())
         else:
             self.costCode = c.DEFAULT_COSTCODE
@@ -59,6 +58,7 @@ class Block:
             premiumRate = self.day.week.employee.employee[c.EE_SNOW_PAY]
             if premiumRate == None:
                 premiumRate = 0
+
 
         
       
@@ -261,6 +261,10 @@ class Block:
         self.qtrNumber = quarter
         # print(self.checkDate.month)
         # self.qtrNumber = self.checkDate.month // 3 + 1
+
+
+         # change cost code to a string with .000 at the end
+        self.costCode = f'{self.costCode:.3f}'
 
         
         row = [
