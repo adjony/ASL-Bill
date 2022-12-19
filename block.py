@@ -47,18 +47,20 @@ class Block:
             self.activity = c.ACTIVITY_CODE_FORCED_LUNCH
         else:
             self.activity = row[c.TS_ACTIVITY]
+            
         if '-' in self.activity:
             self.costCode = float(self.activity.split('-')[0].strip())
         else:
             self.costCode = c.DEFAULT_COSTCODE
 
+
+            
         premiumRate = None
 
         if self.costCode == 280 or self.costCode == 300:
             premiumRate = self.day.week.employee.employee[c.EE_SNOW_PAY]
             if premiumRate == None:
                 premiumRate = 0
-
 
         
       
@@ -197,6 +199,8 @@ class Block:
             return 99
 
 
+
+    
     
     
 

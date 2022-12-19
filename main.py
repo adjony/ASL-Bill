@@ -35,6 +35,11 @@ for index, row in dfEmployees.iterrows():
     employee = emp.Employee(row, dfTimesheet)
     employees.append(employee)
 
+# sort employees by last name (ascending)
+
+employees.sort(key=lambda x: x.lastName)
+
+
 
 
 
@@ -63,6 +68,8 @@ dfOutput.drop(columns=['color'], inplace=True)
 
 
 
+
+
 startRow = 12
 startColumnNumber = 2
 startColumn = xlsxwriter.utility.xl_col_to_name(startColumnNumber - 1)
@@ -84,6 +91,7 @@ end = dfOutput.shape[0] + 2
     # 'B11:AI' + str(dfOutput.shape[0] + 2)).autofit()
 
 for i in range(start, end):
+
 
     row = startColumn + str(i + startRow - 2) + ':' + endColumn + str(i + startRow - 2)
     output.range(row).color = colorsCol[i]

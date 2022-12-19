@@ -77,22 +77,24 @@ class Week:
             if (hoursWorked > 5 and self.employee.category != c.CATEGORY_SALARY):
                
                 lunchRow = dayDf[dayDf[c.TS_ACTIVITY].str.contains(c.ACTIVITY_CODE_LUNCH)]
-                if not lunchRow.empty:
-                    
-                    lunchRow = lunchRow.iloc[0]
-                    temp = lunchRow[c.TS_HOURS]
-                     # if temp is less than 20 minutes
-                    if (temp < (1.0 / 60.0) * 20.0):
-                        lunchTime = temp
+                newDay = day.Day(dayDf, self)
+                if (not newDay.cannotHaveLunch()):
+                    if not lunchRow.empty:
+                        
+                        lunchRow = lunchRow.iloc[0]
+                        temp = lunchRow[c.TS_HOURS]
+                        # if temp is less than 20 minutes
+                        if (temp < (1.0 / 60.0) * 20.0):
+                            lunchTime = temp
+                            hadLunch = False
+                    else:
                         hadLunch = False
-                else:
-                    hadLunch = False
             
             if not hadLunch:
-                for day in self.days:
-                    if day.date == row[c.TS_DATE]:
+                for anotherDay in self.days:
+                    if anotherDay.date == row[c.TS_DATE]:
                         totalHours -= (.5 - lunchTime)
-                        block = day.getLunchBlock((-.5 + lunchTime), totalHours > 40)
+                        block = anotherDay.getLunchBlock((-.5 + lunchTime), totalHours > 40)
                         self.employee.negBlocks.append(block)
                         break
              
@@ -114,14 +116,16 @@ class Week:
             if (hoursWorked > 5 and self.employee.category != c.CATEGORY_SALARY):
             
                 lunchRow = dayDf[dayDf[c.TS_ACTIVITY].str.contains(c.ACTIVITY_CODE_LUNCH)]
-                if not lunchRow.empty:
-                    lunchRow = lunchRow.iloc[0]
-                    temp = lunchRow[c.TS_HOURS]
-                     # if temp is less than 20 minutes
-                    if (temp < (1.0 / 60.0) * 20.0):
-                        lunchTime = temp
-                    else :
-                        lunchDefault = 0
+                newDay = day.Day(dayDf, self)
+                if (not newDay.cannotHaveLunch()):
+                    if not lunchRow.empty:
+                        lunchRow = lunchRow.iloc[0]
+                        temp = lunchRow[c.TS_HOURS]
+                        # if temp is less than 20 minutes
+                        if (temp < (1.0 / 60.0) * 20.0):
+                            lunchTime = temp
+                        else :
+                            lunchDefault = 0
 
                 lunchHours += (lunchDefault - lunchTime)
 
