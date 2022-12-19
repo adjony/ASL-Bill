@@ -60,11 +60,15 @@ class Day:
             costCode = c.DEFAULT_COSTCODE
             if '-' in activity:
                 costCode = float(activity.split('-')[0].strip())
-
+            # kill lunch deduct if related to snow pay
             if (costCode == 280 or costCode == 300):
                 return True 
-            elif (costCode >= 9000 and costCode <= 9999):
+            # kill lunch deduct if related to deliveries (Joanne to add new cost code per discussion on 12/19/22
+            elif (costCode ==4):
                 return True
+            # Joanne said NOT to kill lunch deduct if related to 9000-9999 per discussion on 12/19/22
+            # elif (costCode >= 9000 and costCode <= 9999):
+            #     return True
 
         return False
 
