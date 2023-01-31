@@ -267,8 +267,8 @@ class Block:
         # self.qtrNumber = self.checkDate.month // 3 + 1
 
 
-         # change cost code to a string with .000 at the end
-        self.costCode = str(self.costCode) + ".000"
+        # change cost code to a string with .000 at the end
+        self.costCode = str(self.costCode) + "00" #system was printing out as "n.0.000,"" so modified to output only "00"
 
         
         row = [

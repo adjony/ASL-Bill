@@ -10,7 +10,6 @@ import datetime
 import xlsxwriter
 import os
 
-
 #template_path = os.path.join(os.path.expanduser('~'), 'Documents', 'Personal', 'Education_Learning', 'PythonStuff', 'vba', 'EiD_SageImport_Template.xlsm')
 template_path = os.path.join(os.path.expanduser('~'), 'Documents', 'asl-payroll', 'EiD_SageImport_Template.xlsm')
 wb = xw.Book(template_path) #optional: can also be a path to an existing file
