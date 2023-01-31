@@ -57,7 +57,7 @@ class Block:
             
         premiumRate = None
 
-        if self.costCode == 280 or self.costCode == 300:
+        if self.costCode == 280 or self.costCode >= 300 and self.costCode <= 399:
             premiumRate = self.day.week.employee.employee[c.EE_SNOW_PAY]
             if premiumRate == None:
                 premiumRate = 0
@@ -268,7 +268,7 @@ class Block:
 
 
          # change cost code to a string with .000 at the end
-        self.costCode = f'{self.costCode:.3f}'
+        self.costCode = str(self.costCode) + ".000"
 
         
         row = [
@@ -277,7 +277,7 @@ class Block:
             endDate, # payprd
             '0000', # chknum
             self.checkDate, # chkdte
-            self.payType, # paytyp
+            1, # paytyp
             self.qtrNumber, # qtrnum
             'UT', # taxste
             '', # dirdep
